@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+
+{% block styles %}
+<style>
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function check(){
+
+    $("#alert").hide();
+
+    msg=$("#msg").val();
+
+    if(msg==""){
+        return false;
+    }
+
+    $.ajax({
+        url: "check",
+        method: "POST",
+        data: "msg="+msg,
+        success: function(data){
+            if(data=="1"){
+                $("#alert").text("这条短信是垃圾短信！");
+                $("#alert").attr("class","alert alert-danger alert-dismissible");
+                $("#alert").show();
+            }
+            if(data=="0"){
+                $("#alert").text("这条短信为正常短信！");
+                $("#alert").attr("class","alert alert-success alert-dismissible");
+                $("#alert").show();
+            }
+        }
+    });
+}
+
+function getmsg(){
+
+     $("#alert").hide();
+
+    $.ajax({
+        url: "getmsg",
+        success: function(data){
+            $("#msg").val(data);
+        }
+    });
+}
+
+
+
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="page-header">
+            <h2>输入短信文本</h2></div>
+        <div class="input-group">
+            <input id="msg" class="form-control input-lg" type="text" placeholder="输入文本"><span class="input-group-btn">
+        <button id="check" onclick="check();" class="btn btn-lg btn-default" type="button">检测</button>
+      </span>
+        </div>
+        <br/>
+        <div id="alert" class="alert alert-success alert-dismissible" role="alert" style="display:none;">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span
+                    class="sr-only">close</span></button>
+            <strong>这条短信为正常短信！</strong>
+        </div>
+        <p class="center">
+            <button onclick="getmsg();" class="btn btn-bg btn-default">测试短信</button>
+        </p>
+
+
+    </div>
+</div>
+
+{% endblock %}

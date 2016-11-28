@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3 bs-docs-sidebar">
+            <div class="list-group table-of-contents">
+                <li><a class="list-group-item" href="#1">项目目标</a></li>
+                <li><a class="list-group-item" href="#2">项目要求</a></li>
+                <li><a class="list-group-item" href="#3">数据集</a></li>
+                <li><a class="list-group-item" href="#4">数据集分割</a></li>
+                <li><a class="list-group-item" href="#5">算法验证</a></li>
+            </div>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-8"><h1 id="1">项目目标</h1>
+
+            <p>实现一个垃圾短信识别系统，在给定的数据集上验证效果</p>
+
+            <hr/>
+
+            <h1 id="2">项目要求</h1>
+
+            <ol>
+                <li>至少实现两种分类算法</li>
+                <li>有算法对比试验及结果</li>
+                <li>将全部研究过程写成报告提交
+                    <ul>
+                        <li>简介、相关工作、项目过程、实验等</li>
+                        <li>讨论问题与其他任务相比的异同点</li>
+                        <li>讨论算法选择的理由，优缺点及可能的改进方案</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr/>
+
+            <h1 id="3">数据集</h1>
+
+            <ol>
+                <li>带标签的数据-用于模型训练和测试
+                    <ul>
+                        <li>标签域：1表示垃圾短信/0表示正常短信</li>
+                        <li>文本域：短信源文本</li>
+                    </ul>
+                </li>
+                <li>不带标签的数据-用于线上模拟</li>
+            </ol>
+
+            <hr/>
+
+            <h1 id="4">数据集分割</h1>
+
+            <ul>
+                <li>随机分割</li>
+                <li>5-fold cross validation</li>
+            </ul>
+
+            <hr/>
+
+            <h1 id="5">算法验证</h1>
+
+            <ul>
+                <li>精度：Precision/Recall/F1</li>
+                <li>速度：线上预测时间</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

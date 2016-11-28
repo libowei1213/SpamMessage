@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>垃圾短信识别</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet">
+    <link href="http://bootswatch.com/assets/css/custom.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+
+
+    {% block styles %} {% endblock %}
+
+    {% block scripts %} {% endblock %}
+
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">垃圾短信识别</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="active" href="/index">首页</a>
+                </li>
+                <li>
+                    <a href="/project">项目简介</a>
+                </li>
+                <li>
+                    <a href="/algorithm">分类算法</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/about">关于我们</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+{% block content %} {% endblock %}
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
