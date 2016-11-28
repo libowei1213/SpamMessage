@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 import bayes
-import jieba
 import random
 
 app = Flask(__name__)

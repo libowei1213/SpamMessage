@@ -1,8 +1,6 @@
 # coding=utf-8
-
 import jieba
 import math
-import time
 
 # 分词文件路径
 words_data_path = "data/words.txt"
