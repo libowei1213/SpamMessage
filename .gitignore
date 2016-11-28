@@ -1,5 +1,4 @@
-
-/.idea
+﻿/.idea
 */.idea
 /data
 
@@ -219,3 +218,8 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+bayes/words.txt
+bayes/带标签短信.txt
+online/data/words.txt
+online/data/不带标签短信.txt
+bayes/测试短信.txt
