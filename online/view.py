@@ -2,11 +2,14 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 import bayes
 import random
+import online.svm
+import gensim
 
 app = Flask(__name__)
 Bootstrap(app)
 
 prior, condprob = bayes.runBayes()
+word_model = gensim.models.Word2Vec.load_word2vec_format('data/word2vec_model', binary=True)
 
 
 @app.route("/")
@@ -18,7 +21,13 @@ def index():
 @app.route("/check", methods=['POST', 'GET'])
 def checkmsg():
     msg = request.form['msg']
-    result = bayes.predict(msg, prior, condprob)
+    method = request.form['method']
+    if msg == "" or method == "":
+        return ""
+    if method == "1":
+        result = bayes.predict(msg, prior, condprob)
+    elif method == "2":
+        result = online.svm.svm_predict(word_model, msg)
     return str(result)
 
 

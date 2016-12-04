@@ -13,6 +13,10 @@
 
 
 
+
+
+
+
 </style>
 {% endblock %}
 
@@ -21,17 +25,17 @@
 function check(){
 
     $("#alert").hide();
-
     msg=$("#msg").val();
-
     if(msg==""){
         return false;
     }
 
+    radio= $('input[name="option"]:checked ').val();
+
     $.ajax({
         url: "check",
         method: "POST",
-        data: "msg="+msg,
+        data: "msg="+msg+"&method="+radio,
         success: function(data){
             if(data=="1"){
                 $("#alert").text("这条短信是垃圾短信！");
@@ -63,6 +67,10 @@ function getmsg(){
 
 
 
+
+
+
+
 </script>
 {% endblock %}
 
@@ -72,6 +80,17 @@ function getmsg(){
     <div class="row">
         <div class="page-header">
             <h2>输入短信文本</h2></div>
+        <div class="input-group">
+            <label>
+                <input type="radio" name="option" id="option1" value="1" checked>
+                朴素贝叶斯
+            </label>
+            <label>
+                <input type="radio" name="option" id="option2" value="2" checked>
+                SVM
+            </label>
+        </div>
+
         <div class="input-group">
             <input id="msg" class="form-control input-lg" type="text" placeholder="输入文本"><span class="input-group-btn">
         <button id="check" onclick="check();" class="btn btn-lg btn-default" type="button">检测</button>
